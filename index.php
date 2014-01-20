@@ -441,6 +441,11 @@ function modRow(id, act) {
 		var row = $('#row'+id)[0];
 		var cont = 'id=' + id;
 	}
+
+	if (act === 'delete') { //This has caused me a lot of grief for not adding it sooner...
+		var con = confirm('Are you sure you want to delete ' + $(row).find('.performer').val() + ' ?')
+		if (con === false) return false;
+	}
 	
 	console.log(cont);
 	$.ajax({
